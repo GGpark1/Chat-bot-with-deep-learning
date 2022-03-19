@@ -29,5 +29,26 @@ p = Preprocess()
 dict = []
 for c in corpus_data:
     pos = p.pos(c[1]) #문장을 형태소 분류기에 input
-    
+    for k in pos:
+        dict.append(k[0]) #형태소 분류기를 통과한 데이터에서 키워드만 추출
+
+#키워드 리스트를 단어-인덱스(사전) 형태로 전환
+
+tokenizer = preprocessing.text.Tokenizer(oov_token = 'OOV')
+tokenizer.fit_on_texts(dict)
+word_index = tokenizer.word_index
+
+#breakpoint()
+
+#사전 파일 생성
+
+f = open("chatbot_dict.bin", "wb")
+try:
+    pickle.dump(word_index, f)
+except Exception as e:
+    print(e)
+finally:
+    f.close()
+
+
 
