@@ -17,7 +17,6 @@ import pickle
 def read_corpus_data(filename):
     with open(filename, 'r') as f:
         data = [line.split('\t') for line in f.read().splitlines()]
-        data = data[1:] #헤더 제거
     
     return data
 
@@ -25,7 +24,9 @@ def read_corpus_data(filename):
 
 corpus_data = read_corpus_data('./corpus.txt')
 
-p = Preprocess()
+p = Preprocess(word2index_dic='chatbot_dict.bin',
+               userdic = '../../utils/user_dic.tsv')
+
 dict = []
 for c in corpus_data:
     pos = p.pos(c[1]) #문장을 형태소 분류기에 input
