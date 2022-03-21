@@ -154,4 +154,4 @@ print('loss %f' % (loss))
 """
 모델 저장
 """
-model.save('intent_model.h5')
+model.save('intent_model_1.h5')

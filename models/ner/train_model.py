@@ -1,3 +1,7 @@
+import sys
+path = "/Users/giyeon/Section4//Project4/project4_chatbot"
+sys.path.append(path)
+
 import tensorflow as tf
 from tensorflow.keras import preprocessing
 from sklearn.model_selection import train_test_split
@@ -116,7 +120,7 @@ model.compile(loss='categorical_crossentropy', optimizer=Adam(0.01), metrics=['a
 model.fit(X_train, y_train, batch_size=128, epochs=10)
 
 print("평가 결과 : ", model.evaluate(X_test, y_test)[1])
-model.save('ner_model.h5')
+model.save('ner_model_1.h5')
 
 """
 시퀀스를 NER 태그로 변환
