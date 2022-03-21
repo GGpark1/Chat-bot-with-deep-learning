@@ -120,7 +120,7 @@ model.compile(loss='categorical_crossentropy', optimizer=Adam(0.01), metrics=['a
 model.fit(X_train, y_train, batch_size=128, epochs=10)
 
 print("평가 결과 : ", model.evaluate(X_test, y_test)[1])
-model.save('ner_model_1.h5')
+model.save('ner_model_test.h5')
 
 """
 시퀀스를 NER 태그로 변환
